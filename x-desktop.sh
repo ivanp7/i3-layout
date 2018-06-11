@@ -1,5 +1,1 @@
-#!/bin/bash
-
-startx
-reset
-
+/home/ivanp7/x/x-desktop.sh
