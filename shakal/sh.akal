@@ -1,0 +1,4 @@
+#!/bin/bash
+
+img2txt -W $(tput cols) -H $(tput lines) -g 0.3 $(dirname $0)/ded.jpg
+
