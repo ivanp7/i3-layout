@@ -21,18 +21,24 @@ else
     exit 2
 fi
 
-if [[ "$1" == "login" ]]
+if [[ "$1" == "check" ]]
 then
-    SSH_FLAGS="-p $PORT"
-elif [[ "$1" == "tunnel" ]]
-then
-    SSH_FLAGS="-D $LOCAL_PORT -N -p $PORT"
+    COMMAND="nc -z $HOSTNAME $PORT"
 else
-    echo Error: unknown command "$1"
-    exit 1
+    if [[ "$1" == "login" ]]
+    then
+        SSH_FLAGS="-p $PORT"
+    elif [[ "$1" == "tunnel" ]]
+    then
+        SSH_FLAGS="-D $LOCAL_PORT -N -p $PORT"
+    else
+        echo Error: unknown command "$1"
+        exit 1
+    fi
+
+    COMMAND="TERM=xterm-256color ssh $SSH_FLAGS $USERNAME@$HOSTNAME"
 fi
 
-SSH_COMMAND="TERM=xterm-256color ssh $SSH_FLAGS $USERNAME@$HOSTNAME"
-echo $SSH_COMMAND
-bash -c "$SSH_COMMAND"
+echo $COMMAND
+bash -c "$COMMAND"
 
