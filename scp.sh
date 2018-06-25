@@ -22,10 +22,10 @@ fi
 
 if [[ "$1" == "download" ]]
 then
-    SCP_COMMAND="scp -P $PORT $USERNAME@$HOSTNAME:$3 $4"
+    SCP_COMMAND="scp -P $PORT $USERNAME@$HOSTNAME:\"$3\" \"$4\""
 elif [[ "$1" == "upload" ]]
 then
-    SCP_COMMAND="scp -P $PORT $3 $USERNAME@$HOSTNAME:$4"
+    SCP_COMMAND="scp -P $PORT \"$3\" $USERNAME@$HOSTNAME:\"$4\""
 else
     echo Error: unknown command "$1"
     exit 1
