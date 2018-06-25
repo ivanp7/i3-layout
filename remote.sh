@@ -41,10 +41,10 @@ elif [[ "$1" == "download" ]]
 then
     COMMAND="rsync -avrP -e 'ssh -p $PORT' $USERNAME@$HOSTNAME:\"$3\" \"$4\""
 
-elif [[ "$1" == "login" ]]
+elif [[ "$1" == "command" ]]
 then
     SSH_FLAGS="-p $PORT"
-    COMMAND="TERM=xterm-256color ssh $SSH_FLAGS $USERNAME@$HOSTNAME"
+    COMMAND="TERM=xterm-256color ssh $SSH_FLAGS $USERNAME@$HOSTNAME ${@:3}"
 elif [[ "$1" == "tunnel" ]]
 then
     SSH_FLAGS="-D $LOCAL_PORT -N -p $PORT"
