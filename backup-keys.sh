@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cp -a ~/Common/Keys ~/Dropbox
+rsync -avP --force --delete ~/Personal/Keys/ ~/Dropbox/Keys/
 
