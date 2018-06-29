@@ -36,16 +36,22 @@
 # CODE
 # ==========
 
+i3-msg workspace "2"
+
+i3-msg "append_layout ~/scripts/layout/workspace_2.json"
+termite --exec "/bin/bash -c 'echo; neofetch; bash'" --title "Terminal" &
+termite --exec "$HOME/scripts/kpcli.sh" --title "KeePass" &
+
 i3-msg workspace "1"
 
 i3-msg "append_layout ~/scripts/layout/workspace_1.json"
 termite --exec "/bin/bash -c 'echo; neofetch; bash'" --title "Terminal" &
-termite --exec="tty-clock -c -b -n" --title="Clock" &
+termite --exec "tty-clock -c -b -n" --title "Clock" &
 termite --exec "/bin/bash -c 'when ci; bash'" --title "Calendar" &
-termite --exec="/bin/bash -c 'todo.sh ls; bash'" --title="To-Do List" &
+termite --exec "/bin/bash -c 'todo.sh ls; bash'" --title "To-Do List" &
 
 ~/scripts/layout/wallpaper.sh &
 
-sleep 1.0
-i3-msg "[title=\"Terminal\"] focus"
+sleep 2.0
+i3-msg '[con_mark="primary_terminal"] focus'
 

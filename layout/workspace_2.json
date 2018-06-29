@@ -1,0 +1,64 @@
+{
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.7,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 3,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 314,
+               "width": 570,
+               "x": 0,
+               "y": 0
+            },
+            "name": "Terminal",
+            "percent": null,
+            "swallows": [
+               {
+                "class": "^Termite$",
+                "instance": "^termite$",
+                "title": "^Terminal$",
+                "transient_for": "^$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.3,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 3,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 314,
+               "width": 570,
+               "x": 0,
+               "y": 0
+            },
+            "name": "KeePass",
+            "percent": null,
+            "swallows": [
+               {
+                "class": "^Termite$",
+                "instance": "^termite$",
+                "title": "^KeePass$",
+                "transient_for": "^$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+

@@ -25,7 +25,8 @@
                 "transient_for": "^$"
                }
             ],
-            "type": "con"
+            "type": "con",
+            "marks": ["primary_terminal"]
         }
     ]
 }
