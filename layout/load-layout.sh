@@ -52,6 +52,8 @@ termite --exec "/bin/bash -c 'todo.sh ls; bash'" --title "To-Do List" &
 
 ~/scripts/layout/wallpaper.sh &
 
-sleep 2.0
+sleep 1.0
+i3-msg '[con_mark="primary_terminal"] focus'
+sleep 3.0
 i3-msg '[con_mark="primary_terminal"] focus'
 
