@@ -1,25 +1,11 @@
 #!/bin/bash
 
-USERNAME=ivanp7
-LOCAL_PORT=65535
+cd `dirname $0`
 
-# Known servers
-if [[ "$2" == "roboticslab" ]]; then
-    HOSTNAME=roboticslab
-    PORT=62222
-    WAKEUP_PORT=40000
-    MAC_ADDRESS="38:60:77:72:d5:a0"
-elif [[ "$2" == "home-black" ]]; then
-    HOSTNAME=home
-    PORT=62222
-    WAKEUP_PORT=61111
-    MAC_ADDRESS="40:61:86:63:db:cc"
-elif [[ "$2" == "home-white" ]]; then
-    HOSTNAME=home
-    PORT=62223
-    WAKEUP_PORT=61112
-    MAC_ADDRESS="00:14:2a:a0:5f:1f"
-else
+DESCRIPTION="$(grep "^$2 " remote-hosts.txt)"
+read -r COMPUTER USERNAME HOSTNAME PORT WAKEUP_PORT MAC_ADDRESS <<< "$DESCRIPTION"
+
+if [[ -z "$COMPUTER" ]]; then
     echo Error: unknown host "$2"
     exit 2
 fi
@@ -34,10 +20,18 @@ elif [[ "$1" == "upload" ]]; then
 elif [[ "$1" == "download" ]]; then
     COMMAND="rsync -avP -e 'ssh -p $PORT' $USERNAME@$HOSTNAME:\"$3\" \"$4\""
 
+elif [[ "$1" == "mount" ]]; then
+    COMMAND="sshfs $USERNAME@$HOSTNAME:\"$3\" \"$4\" -p $PORT"
+elif [[ "$1" == "unmount" ]]; then
+    COMMAND="fusermount3 -u \"$3\""
+
 elif [[ "$1" == "command" ]]; then
     SSH_FLAGS="-p $PORT"
     COMMAND="TERM=xterm-256color ssh $SSH_FLAGS $USERNAME@$HOSTNAME ${@:3}"
 elif [[ "$1" == "tunnel" ]]; then
+    LOCAL_PORT=$3
+    if [[ -z "$LOCAL_PORT" ]]; then LOCAL_PORT=65535; fi
+
     SSH_FLAGS="-D $LOCAL_PORT -N -p $PORT"
     COMMAND="TERM=xterm-256color ssh $SSH_FLAGS $USERNAME@$HOSTNAME"
 
