@@ -19,7 +19,7 @@ elif [[ "$1" == "download" ]]; then
     COMMAND="rsync -avP -e 'ssh -p $PORT' $USERNAME@$HOSTNAME:\"$3\" \"$4\""
 
 elif [[ "$1" == "mount" ]]; then
-    COMMAND="sshfs $USERNAME@$HOSTNAME:\"$3\" \"$4\" -p $PORT"
+    COMMAND="sshfs $USERNAME@$HOSTNAME:\"$3\" \"$4\" -p $PORT -o reconnect"
 elif [[ "$1" == "unmount" ]]; then
     COMMAND="fusermount3 -u \"$3\""
 
