@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DESCRIPTION="$(grep "^$2 " `dirname $0`/remote-hosts.txt)"
+DESCRIPTION="$(grep "^$2 " `dirname $0`/known-remote-hosts.txt)"
 read -r COMPUTER USERNAME HOSTNAME PORT WAKEUP_PORT MAC_ADDRESS <<< "$DESCRIPTION"
 
 if [[ -z "$COMPUTER" ]]; then
