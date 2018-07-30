@@ -14,9 +14,9 @@ elif [[ "$1" == "wakeup" ]]; then
     COMMAND="wol -p $WAKEUP_PORT -i $HOSTNAME $MAC_ADDRESS"
 
 elif [[ "$1" == "upload" ]]; then
-    COMMAND="rsync -avP -e 'ssh -p $PORT' $3 '$USERNAME@$HOSTNAME:$4'"
+    COMMAND="rsync -avP ${@:5} -e 'ssh -p $PORT' $3 '$USERNAME@$HOSTNAME:$4'"
 elif [[ "$1" == "download" ]]; then
-    COMMAND="rsync -avP -e 'ssh -p $PORT' '$USERNAME@$HOSTNAME:$3' $4"
+    COMMAND="rsync -avP ${@:5} -e 'ssh -p $PORT' '$USERNAME@$HOSTNAME:$3' $4"
 
 elif [[ "$1" == "mount" ]]; then
     COMMAND="sshfs $USERNAME@$HOSTNAME:$3 $4 -p $PORT -o reconnect"
