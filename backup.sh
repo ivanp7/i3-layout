@@ -4,7 +4,7 @@ if [[ "$1" == "keys" ]]; then
     rsync -avP --force --delete ~/Personal/Keys/ ~/Dropbox/Keys/
 elif [[ "$1" == "vm" ]]; then
     if [[ -z "$2" ]]; then
-        remote.sh upload home-primary ~/HostShared/VirtualMachines/ /mnt/backup/Disk/VirtualMachines/
+        remote.sh upload home-primary ~/HostShared/VirtualMachines/ /mnt/backup/Disk/VirtualMachines/Used/
     else
         rsync -avP ~/HostShared/VirtualMachines/ $2
     fi
