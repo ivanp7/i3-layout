@@ -1,24 +1,17 @@
 #!/bin/bash
 
 CLOUD_HOSTNAME=home-primary
+CLOUD_BACKUP_DIRECTORY=/mnt/hdd/backup-primary
 
 if [[ "$1" == "keys" ]]; then
     rsync -avP --force --delete "$HOME/Personal/Keys/" "$HOME/Dropbox/Keys/"
 
 elif [[ "$1" == "vm" ]]; then
-    if [[ -z "$2" ]]; then
-        remote.sh upload $CLOUD_HOSTNAME "$HOME/HostShared/VirtualMachines/" "/mnt/backup/Disk/VirtualMachines/Used/"
-    else
-        if [[ -z "$3" ]]; then
-            remote.sh upload $CLOUD_HOSTNAME "$HOME/VirtualMachines/$2" "/mnt/backup/Disk/VirtualMachines/Used/"
-        else
-            rsync -avP "$HOME/VirtualMachines/$2" "$3"
-        fi
-    fi
+    remote.sh upload $CLOUD_HOSTNAME "$HOME/HostShared/VirtualMachines/" "$CLOUD_BACKUP_DIRECTORY/VirtualMachines/Used/"
 
 elif [[ "$1" == "data" ]]; then
     if [[ -z "$2" ]]; then
-        remote.sh upload $CLOUD_HOSTNAME "$HOME/HostShared/Workspace/Data/" "/mnt/backup/Disk/Workspace/Data/" --force --delete
+        remote.sh upload $CLOUD_HOSTNAME "$HOME/HostShared/Workspace/Data/" "$CLOUD_BACKUP_DIRECTORY/Workspace/Data/" --force --delete
     else
         rsync -avP --force --delete "$HOME/HostShared/Workspace/Data/" "$2"
     fi
