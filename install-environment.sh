@@ -11,6 +11,8 @@ cd ~
 ####################################################################
 
 echo "Installing symbolic links..."
+ln -sf /mnt/vmhgfs/shared HostShared
+
 ln -sf /home/$USERNAME/HostShared/Workspace/Data/Personal
 ln -sf /home/$USERNAME/HostShared/Workspace/Downloads
 
