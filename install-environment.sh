@@ -21,11 +21,8 @@ ln -sf /home/$USERNAME/Personal/Code/common-lisp
 
 ln -sf /home/$USERNAME/Personal/Text/Config/known_ssh_hosts .known_ssh_hosts
 
-ln -sf /home/$USERNAME/Personal/Text/Notes/Org/calendar .when/
-ln -sf /home/$USERNAME/Personal/Text/Notes/Org/todo/todo.txt .todo/
-ln -sf /home/$USERNAME/Personal/Text/Notes/Org/todo/todo.txt.bak .todo/
-ln -sf /home/$USERNAME/Personal/Text/Notes/Org/todo/done.txt .todo/
-ln -sf /home/$USERNAME/Personal/Text/Notes/Org/todo/report.txt .todo/
+rm -rf /home/$USERNAME/Org
+ln -sf /home/$USERNAME/Personal/Text/Notes/Org
 
 ln -sf /home/$USERNAME/Personal/Pictures/Wallpapers/Used wallpapers
 
