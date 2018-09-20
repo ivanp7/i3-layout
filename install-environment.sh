@@ -41,6 +41,6 @@ chmod 644 .ssh/id_rsa.pub
 
 ####################################################################
 
-echo "Installing dropbox, keepassxc, telegram-desktop, qbittorrent..."
-yay -S dropbox keepassxc telegram-desktop qbittorrent
+echo "Installing keepassxc, telegram-desktop, qbittorrent..."
+yay -S keepassxc telegram-desktop qbittorrent
 
