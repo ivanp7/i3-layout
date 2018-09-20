@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CLOUD_HOSTNAME=home-primary
+CLOUD_HOSTNAME=home-master
 CLOUD_BACKUP_DIRECTORY=/mnt/hdd/backup-primary
 
 if [[ "$1" == "keys" ]]; then
