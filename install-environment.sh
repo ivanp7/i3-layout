@@ -21,6 +21,7 @@ ln -sf /home/$USERNAME/Personal/Code/bash/home-scripts scripts
 ln -sf /home/$USERNAME/Personal/Code/c_cpp
 ln -sf /home/$USERNAME/Personal/Code/common-lisp
 
+ln -sf /home/$USERNAME/Personal/Code/bash/remote-sh/remote.sh bin/
 ln -sf /home/$USERNAME/Personal/Text/Config/ssh_known_hosts .ssh_known_hosts
 
 rm -rf /home/$USERNAME/Org
@@ -41,6 +42,6 @@ chmod 644 .ssh/id_rsa.pub
 
 ####################################################################
 
-echo "Installing keepassxc, telegram-desktop, qbittorrent..."
-yay -S keepassxc telegram-desktop qbittorrent
+echo "Installing keepassxc, telegram-desktop, qbittorrent, dropbox..."
+yay -S keepassxc telegram-desktop qbittorrent dropbox
 
