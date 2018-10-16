@@ -21,7 +21,7 @@ ln -sf /home/$USERNAME/Personal/Code/bash/home-scripts scripts
 ln -sf /home/$USERNAME/Personal/Code/c_cpp
 ln -sf /home/$USERNAME/Personal/Code/common-lisp
 
-ln -sf /home/$USERNAME/Personal/Text/Config/known_ssh_hosts .known_ssh_hosts
+ln -sf /home/$USERNAME/Personal/Text/Config/ssh_known_hosts .ssh_known_hosts
 
 rm -rf /home/$USERNAME/Org
 ln -sf /home/$USERNAME/Personal/Text/Notes/Org
