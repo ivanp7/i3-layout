@@ -69,8 +69,6 @@ termite --exec "tty-clock -c -b -n -C 6" --title "Clock" &
 termite --exec "/bin/bash -c 'while true; do clear; when ci; sleep 60; done'" --title "Calendar" &
 termite --exec "/bin/bash -c 'while true; do clear; todo.sh list; sleep 60; done'" --title "To-Do List" &
 
-( . $HOME/scripts/layout/wallpapers.sh )
-
 sleep 1.0
 i3-msg '[con_mark="primary_terminal"] focus'
 sleep 3.0
