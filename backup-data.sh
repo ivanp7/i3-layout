@@ -2,7 +2,7 @@
 
 CLOUD_HOSTNAME=home-primary
 
-DESCRIPTION="$(grep "^$CLOUD_HOSTNAME " ~/.known_ssh_hosts)"
+DESCRIPTION="$(grep "^$CLOUD_HOSTNAME " $HOME/.ssh_known_hosts)"
 read -r _ _ CLOUD_ADDRESS CLOUD_PORT _ _ <<< "$DESCRIPTION"
 
 echo $CLOUD_ADDRESS:$CLOUD_PORT
