@@ -53,21 +53,21 @@
 # CODE
 # ==========
 
-i3-msg workspace "2"
+# i3-msg workspace "2"
 
-i3-msg "append_layout $HOME/scripts/layout/workspace_2.json"
-termite --exec "/bin/bash -c 'ssh-add; clear; echo; neofetch; bash'" --title "Terminal2" &
-termite --exec "$HOME/scripts/kpcli.sh" --title "KeePass" &
+# i3-msg "append_layout $HOME/scripts/layout/workspace_2.json"
+# termite --exec "bash -c 'ssh-add; clear; echo; neofetch; bash'" --title "Terminal2" &
+# termite --exec "sh $HOME/scripts/kpcli.sh" --title "KeePass" &
 
-sleep 1
+# sleep 1
 
 i3-msg workspace "1"
 
 i3-msg "append_layout $HOME/scripts/layout/workspace_1.json"
-termite --exec "/bin/bash -c 'echo; neofetch; bash'" --title "Terminal1" &
+termite --exec "bash -c 'echo; neofetch; bash'" --title "Terminal1" &
 termite --exec "tty-clock -c -b -n -C 6" --title "Clock" &
-termite --exec "/bin/bash -c 'while true; do clear; when ci; sleep 60; done'" --title "Calendar" &
-termite --exec "/bin/bash -c 'while true; do clear; todo.sh list; sleep 60; done'" --title "To-Do List" &
+termite --exec "sh $HOME/scripts/layout/update_calendar.sh" --title "Calendar" &
+termite --exec "sh $HOME/scripts/layout/update_todo.sh" --title "To-Do List" &
 
 sleep 1.0
 i3-msg '[con_mark="primary_terminal"] focus'
