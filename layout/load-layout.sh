@@ -17,21 +17,9 @@
 # |                     |             |
 # |_____________________|_____________|
 #
-# workspace 2:
-# ____________________________________
-# |                     |             |
-# |                     |             |
-# |                     |             |
-# |                     |             |
-# |                     |             |
-# |                     |             |
-# |       termite       |    kpcli    |
-# |                     |             |
-# |                     |             |
-# |                     |             |
-# |                     |             |
-# |                     |             |
-# |_____________________|_____________|
+# workspace 8: firefox
+# workspace 9: keepassxc
+# workspace 10: telegram-desktop
 #
 # It may be usefull to disable mouse pointer and/or touchpad while
 # layouting.
@@ -50,8 +38,21 @@
 # Enable the touchpad
 # xinput set-prop $touchID "Device Enabled" 1
 
-# CODE
+# LAYOUT
 # ==========
+
+start_app()
+{
+    if ! pgrep ${1:0:15}; then
+        i3-msg "exec $1"
+        sleep 1
+        sh $HOME/.config/i3/wait-and-move.sh `pidof -s $1` 1 $2
+    fi
+}
+
+start_app firefox 8
+start_app keepassxc 9
+start_app telegram-desktop 10
 
 # i3-msg workspace "2"
 
@@ -64,10 +65,10 @@
 i3-msg workspace "1"
 
 i3-msg "append_layout $HOME/scripts/layout/workspace_1.json"
-termite --exec "bash -c 'echo; neofetch; bash'" --title "Terminal1" &
 termite --exec "tty-clock -c -b -n -C 6" --title "Clock" &
 termite --exec "sh $HOME/scripts/layout/update_calendar.sh" --title "Calendar" &
 termite --exec "sh $HOME/scripts/layout/update_todo.sh" --title "To-Do List" &
+termite --exec "bash -c 'echo; neofetch; bash'" --title "Terminal1" &
 
 sleep 1.0
 i3-msg '[con_mark="primary_terminal"] focus'
