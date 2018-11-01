@@ -17,9 +17,13 @@ start_app()
     fi
 }
 
+i3-msg "rename workspace 1 to 1: Terminal"
 start_app firefox 8
+i3-msg "rename workspace 8 to 8: Firefox"
 start_app keepassxc 9
+i3-msg "rename workspace 9 to 9: KeePassXC"
 start_app telegram-desktop 10
+i3-msg "rename workspace 10 to 10: Telegram"
 
 # i3-msg workspace "2"
 
