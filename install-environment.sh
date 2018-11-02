@@ -68,5 +68,5 @@ EndSection
 ####################################################################
 
 echo "Installing keepassxc, telegram-desktop, qbittorrent, dropbox, libreoffice, mtpaint..."
-yay -S keepassxc telegram-desktop qbittorrent dropbox libreoffice-still mtpaint
+yay -S keepassxc telegram-desktop qbittorrent dropbox libreoffice-still mtpaint aspell-ru
 
