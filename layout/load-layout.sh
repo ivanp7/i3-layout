@@ -9,6 +9,10 @@
 # LAYOUT
 # ==========
 
+# Prevent multiple dropbox instances
+pkill dropbox
+i3-msg "exec dropbox"
+
 start_app()
 {
     if ! pgrep ${1:0:15}; then
