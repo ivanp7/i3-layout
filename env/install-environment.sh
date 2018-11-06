@@ -5,8 +5,11 @@ if [[ $EUID == 0 ]]; then
     exit 1
 fi
 
+cd `dirname $0`
+SCRIPT_DIR=$PWD
+
 USERNAME=$(whoami)
-cd ~
+cd $HOME
 
 ####################################################################
 
@@ -16,7 +19,7 @@ ln -sf /mnt/vmhgfs/shared HostShared
 ln -sf /home/$USERNAME/HostShared/Workspace/Data/Personal
 ln -sf /home/$USERNAME/HostShared/Workspace/Downloads
 
-ln -sf /home/$USERNAME/Personal/Code/bash/home-scripts scripts
+ln -sf /home/$USERNAME/Personal/Code/bash/home-scripts bin/scripts
 
 ln -sf /home/$USERNAME/Personal/Code/c_cpp
 ln -sf /home/$USERNAME/Personal/Code/common-lisp
@@ -28,8 +31,6 @@ rm -rf /home/$USERNAME/Org
 ln -sf /home/$USERNAME/Personal/Text/Notes/Org
 
 ln -sf /home/$USERNAME/Personal/Pictures/Wallpapers/Used wallpapers
-
-ln -sf /home/$USERNAME/scripts/bin/octave-gui bin/
 
 echo "Setting issue picture..."
 cat Personal/Pictures/ASCII/Used/issue_picture | bash bin/issue-picture.sh
@@ -43,27 +44,7 @@ chmod 644 .ssh/id_rsa.pub
 ####################################################################
 
 echo "Setting default graphics mode: 1920x1080, 60 Hz, 24 bits depth..."
-echo $'
-Section "Monitor"
-Identifier "Virtual1"
-ModeLine "1920x1080_60.00" 173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
-Option "PreferredMode" "1920x1080_60.00"
-EndSection
-
-Section "Screen"
-Identifier "Screen0"
-Monitor "Virtual1"
-DefaultDepth 24
-SubSection "Display"
-Modes "1920x1080_60.00"
-EndSubSection
-EndSection
-
-Section "Device"
-Identifier "Device0"
-Driver "vmware"
-EndSection
-' | sudo tee /etc/X11/xorg.conf.d/90-resolution.conf
+sudo cp $SCRIPT_DIR/90-resolution.conf /etc/X11/xorg.conf.d/
 
 ####################################################################
 
