@@ -36,15 +36,13 @@ echo "Setting issue picture..."
 cat Personal/Pictures/ASCII/Used/issue_picture | bash bin/issue-picture.sh
 
 echo "Copying SSH keys..."
-cp -f Personal/Keys/SSH/id_rsa .ssh/
-cp -f Personal/Keys/SSH/id_rsa.pub .ssh/
-chmod 600 .ssh/id_rsa
-chmod 644 .ssh/id_rsa.pub
+install -Dm 600 Personal/Keys/SSH/id_rsa .ssh/
+install -Dm 644 Personal/Keys/SSH/id_rsa.pub .ssh/
 
 ####################################################################
 
 echo "Setting default graphics mode: 1920x1080, 60 Hz, 24 bits depth..."
-sudo cp $SCRIPT_DIR/90-resolution.conf /etc/X11/xorg.conf.d/
+sudo install -Dm 644 $SCRIPT_DIR/90-resolution.conf /etc/X11/xorg.conf.d/
 
 ####################################################################
 
