@@ -49,5 +49,5 @@ sudo cp $SCRIPT_DIR/90-resolution.conf /etc/X11/xorg.conf.d/
 ####################################################################
 
 echo "Installing keepassxc, telegram-desktop, qbittorrent, dropbox, libreoffice, mtpaint..."
-yay -S keepassxc telegram-desktop qbittorrent dropbox libreoffice-still mtpaint aspell-ru
+yay -S telegram-desktop qbittorrent libreoffice-still mtpaint aspell-ru
 
