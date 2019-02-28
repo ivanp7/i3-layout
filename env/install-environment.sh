@@ -43,7 +43,6 @@ sudo install -Dm 644 $SCRIPT_DIR/90-resolution.conf /etc/X11/xorg.conf.d/
 
 ####################################################################
 
-echo "Installing keepassxc, telegram-desktop, qbittorrent, dropbox, libreoffice, mtpaint..."
-yay -S telegram-desktop qbittorrent libreoffice-still mtpaint aspell-ru
-yay -S termplay pixterm-git browsh
+echo "Installing telegram-desktop, qbittorrent, libreoffice, mtpaint..."
+yay -S telegram-desktop qbittorrent libreoffice-still aspell-ru mtpaint
 
