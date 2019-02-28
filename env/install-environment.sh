@@ -32,9 +32,6 @@ ln -sf /home/$USERNAME/Personal/Text/Notes/Org
 
 ln -sf /home/$USERNAME/Personal/Pictures/Wallpapers/Used wallpapers
 
-echo "Setting issue picture..."
-cat Personal/Pictures/ASCII/Used/issue_picture | bash bin/issue-picture.sh
-
 echo "Copying SSH keys..."
 install -Dm 600 Personal/Keys/SSH/id_rsa .ssh/
 install -Dm 644 Personal/Keys/SSH/id_rsa.pub .ssh/
@@ -48,4 +45,5 @@ sudo install -Dm 644 $SCRIPT_DIR/90-resolution.conf /etc/X11/xorg.conf.d/
 
 echo "Installing keepassxc, telegram-desktop, qbittorrent, dropbox, libreoffice, mtpaint..."
 yay -S telegram-desktop qbittorrent libreoffice-still mtpaint aspell-ru
+yay -S termplay pixterm-git browsh
 
