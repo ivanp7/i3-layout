@@ -2,15 +2,12 @@
 
 # Building this layout
 #
+# workspace 1: termite
 # workspace 9: firefox
 # workspace 10: telegram-desktop
 #
 # LAYOUT
 # ==========
-
-# Prevent multiple dropbox instances
-pkill dropbox
-i3-msg "exec dropbox"
 
 start_app()
 {
@@ -20,17 +17,10 @@ start_app()
     fi
 }
 
-i3-msg "rename workspace 1 to 1: Terminal"
 start_app firefox 9
 i3-msg "rename workspace 9 to 9: Firefox"
 start_app telegram-desktop 10
 i3-msg "rename workspace 10 to 10: Telegram"
-
-# i3-msg workspace "2"
-
-# i3-msg "append_layout $HOME/scripts/layout/workspace_2.json"
-# termite --exec "bash -c 'ssh-add; clear; echo; neofetch; bash'" --title "Terminal2" &
-# termite --exec "sh $HOME/scripts/kpcli.sh" --title "KeePass" &
-
-# sleep 1
+start_app termite 1
+i3-msg "rename workspace 1 to 1: Terminal"
 
