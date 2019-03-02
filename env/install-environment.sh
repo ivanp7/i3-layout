@@ -36,13 +36,3 @@ echo "Copying SSH keys..."
 install -Dm 600 Personal/Keys/SSH/id_rsa .ssh/
 install -Dm 644 Personal/Keys/SSH/id_rsa.pub .ssh/
 
-####################################################################
-
-echo "Setting default graphics mode: 1920x1080, 60 Hz, 24 bits depth..."
-sudo install -Dm 644 $SCRIPT_DIR/90-resolution.conf /etc/X11/xorg.conf.d/
-
-####################################################################
-
-echo "Installing telegram-desktop, qbittorrent, libreoffice, mtpaint..."
-yay -S telegram-desktop qbittorrent libreoffice-still aspell-ru mtpaint
-
