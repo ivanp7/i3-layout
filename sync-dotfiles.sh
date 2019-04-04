@@ -10,6 +10,6 @@ function sync_dotfiles ()
 }
 
 sync_dotfiles roboticslab 0
-sync_dotfiles home-primary 10
-sync_dotfiles home-secondary 60
+sync_dotfiles home-1 10
+sync_dotfiles home-2 60
 
