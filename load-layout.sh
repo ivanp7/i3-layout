@@ -9,7 +9,13 @@
 # LAYOUT
 # ==========
 
-i3-msg "exec --no-startup-id $(dirname $0)/animated-wallpaper.sh $HOME/wallpapers/animated.wallpaper"
+start_animated_wallpaper ()
+{
+    sleep 1
+    i3-msg "exec --no-startup-id $(realpath $(dirname $0))/animated-wallpaper.sh $HOME/wallpapers/animated.wallpaper"
+}
+
+start_animated_wallpaper &
 
 start_app()
 {
