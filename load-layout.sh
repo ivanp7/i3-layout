@@ -9,6 +9,8 @@
 # LAYOUT
 # ==========
 
+i3-msg "exec --no-startup-id $(dirname $0)/animated-wallpaper.sh $HOME/wallpapers/animated.wallpaper"
+
 start_app()
 {
     if ! pgrep ${1:0:15}; then
