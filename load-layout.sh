@@ -12,7 +12,7 @@
 start_animated_wallpaper ()
 {
     sleep 1
-    i3-msg "exec --no-startup-id $(realpath $(dirname $0))/animated-wallpaper.sh $HOME/wallpapers/animated.wallpaper"
+    sh $(dirname $0)/animated-wallpaper.sh
 }
 
 start_animated_wallpaper &
