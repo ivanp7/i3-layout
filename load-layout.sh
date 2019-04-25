@@ -21,7 +21,7 @@ start_app()
 {
     if ! pgrep ${1:0:15}; then
         i3-msg "exec $1"
-        sh $HOME/.config/i3/bin/wait-and-move.sh $1 1 $2
+        sh $HOME/scripts/xdf/i3/wait-and-move.sh $1 1 $2
     fi
 }
 
