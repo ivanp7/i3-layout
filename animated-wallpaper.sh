@@ -6,7 +6,7 @@ start_wallpaper ()
 
     # dependency: shantz-xwinwrap-bzr from AUR
     [ -n $1 ] && [ -f $1 ] && \
-        i3-msg "exec --no-startup-id xwinwrap -ov -fs -- mpv -wid WID $MPV_OPTIONS $1"
+        xwinwrap -ov -fs -- mpv -wid WID $MPV_OPTIONS $1
 }
 
 start_wallpaper $HOME/wallpapers/animated.wallpaper
