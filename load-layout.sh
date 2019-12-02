@@ -12,7 +12,7 @@
 start_animated_wallpaper ()
 {
     sleep 1
-    $(dirname $0)/animated-wallpaper.sh
+    animated-wallpaper.sh $RANDOM
 }
 
 start_animated_wallpaper &
